@@ -14,7 +14,7 @@ def export_layers(src, dest, hide):
     for g in svg.getElementsByTagName("g"):
         if g.attributes.has_key("inkscape:label") and \
            g.attributes["inkscape:label"].value in hide:
-            g.parentNode.removeChild(g)
+            g.attributes['style'] = 'display:none'
             removed.append(g)
     export = svg.toxml()
     codecs.open(dest, "w", encoding="utf8").write(export)
