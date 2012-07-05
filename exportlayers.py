@@ -10,15 +10,15 @@ import codecs
 
 def export_layers(src, dest, hide):
     svg = minidom.parse(open(src))
-    removed = []
+    g_hide = []
     for g in svg.getElementsByTagName("g"):
         if g.attributes.has_key("inkscape:label") and \
            g.attributes["inkscape:label"].value in hide:
             g.attributes['style'] = 'display:none'
-            removed.append(g)
+            g_hide.append(g)
     export = svg.toxml()
     codecs.open(dest, "w", encoding="utf8").write(export)
-    print "Removed {0} node(s)".format(len(removed))
+    print "Hide {0} node(s)".format(len(g_hide))
 
 
 def main():
