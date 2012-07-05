@@ -1,0 +1,12 @@
+usage: exportlayers.py [-h] [--hide HIDE] [--show SHOW] src dest
+
+Export selected layers from Inkscape SVG.
+
+positional arguments:
+  src          source SVG file.
+  dest         path to export SVG file.
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --hide HIDE  layer to hide. this option can be specified multiple times.
+  --show SHOW  layer to show. this option can be specified multiple times.
