@@ -9,6 +9,15 @@ import codecs
 
 
 def export_layers(src, dest, hide, show):
+    """
+    Export selected layers of SVG in the file `src` to the file `dest`.
+
+    :arg  str    src:  path of the source SVG file.
+    :arg  str   dest:  path to export SVG file.
+    :arg  list  hide:  layers to hide. each element is a string.
+    :arg  list  show:  layers to show. each element is a string.
+
+    """
     svg = minidom.parse(open(src))
     g_hide = []
     g_show = []
