@@ -22,7 +22,7 @@ def export_layers(src, dest, hide, show):
     g_hide = []
     g_show = []
     for g in svg.getElementsByTagName("g"):
-        if g.attributes.has_key("inkscape:label"):
+        if "inkscape:label" in g.attributes:
             label = g.attributes["inkscape:label"].value
             if label in hide:
                 g.attributes['style'] = 'display:none'
@@ -32,8 +32,8 @@ def export_layers(src, dest, hide, show):
                 g_show.append(g)
     export = svg.toxml()
     codecs.open(dest, "w", encoding="utf8").write(export)
-    print "Hide {0} node(s);  Show {1} node(s).".format(
-        len(g_hide), len(g_show))
+    print("Hide {0} node(s);  Show {1} node(s).".format(
+        len(g_hide), len(g_show)))
 
 
 def main():
